@@ -76,6 +76,13 @@ namespace CalculatorUnitTest
         }
 
         [Test]
+        [TestCase(-6, -2, 3)]
+        public void TestDivideNegativeNumByNegativeNum (float num1, float num2, float expectedResult)
+        {
+            Assert.That(num1 / num2, Is.EqualTo(expectedResult), "Il risultato atteso è errato");
+        }
+
+        [Test]
         public void TestDivideByZeroEqualsNegativeInfinity()
         {
             // dichiaro gli input

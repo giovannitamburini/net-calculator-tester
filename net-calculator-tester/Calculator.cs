@@ -35,7 +35,7 @@ namespace net_calculator_tester
 
         public static float Multiply(float num1, float num2)
         {
-            return num1 / num2;
+            return num1 * num2;
         }
     }
 }

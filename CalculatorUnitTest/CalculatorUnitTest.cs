@@ -59,8 +59,23 @@ namespace CalculatorUnitTest
 
             // confront output funzione con l'output atteso
             Assert.IsTrue(outputDivide == totalExpected, $"Il risultato atteso dalla divisione sarebbe {totalExpected} mentre il risultato ottenuto è {outputDivide}");
+        }
 
+        [Test]
+        public void TestMultiply()
+        {
+            // dichiaro gli input
+            float num1 = 3f;
+            float num2 = 5f;
 
+            // dichiaro output atteso
+            float totalExpected = 15f;
+
+            // richiamo la funzione
+            float outputMultiply = Calculator.Multiply(num1, num2);
+
+            // confronto output funzione con l'output atteso
+            Assert.IsTrue(outputMultiply == totalExpected, $"Il risultato atteso dalla moltiplicazione sarebbe {totalExpected} mentre il risultato ottenuto è {outputMultiply}");
         }
     }
 }

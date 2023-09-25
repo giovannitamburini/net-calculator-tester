@@ -62,13 +62,27 @@ namespace CalculatorUnitTest
         }
 
         [Test]
-        public void TestDivideByZeroEqualsInfinity()
+        public void TestDivideByZeroEqualsPositiveInfinity()
         {
             // dichiaro gli input
             float num1 = 5f;
             float num2 = 0;
 
             float totalExpected = float.PositiveInfinity;
+
+            float outputDivide = Calculator.Divide(num1, num2);
+
+            Assert.That(outputDivide, Is.EqualTo(totalExpected), $"Il risultato atteso della divisione sarebbe {totalExpected} mentre il risultato ottenuto è {outputDivide}");
+        }
+
+        [Test]
+        public void TestDivideByZeroEqualsNegativeInfinity()
+        {
+            // dichiaro gli input
+            float num1 = -5f;
+            float num2 = 0;
+
+            float totalExpected = float.NegativeInfinity;
 
             float outputDivide = Calculator.Divide(num1, num2);
 

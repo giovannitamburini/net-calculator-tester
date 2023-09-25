@@ -21,7 +21,14 @@ namespace net_calculator_tester
 
         public static float Divide(float num1, float num2)
         {
-            return num1 / num2;
+            try
+            {
+                return num1 / num2;
+            }
+            catch(DivideByZeroException ex)
+            {
+                throw new DivideByZeroException("Hai diviso un numero per zero, divisione errata, " + ex.Message);
+            }
         }
 
         public static float Multiply(float num1, float num2)

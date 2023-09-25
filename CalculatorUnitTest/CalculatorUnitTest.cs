@@ -57,8 +57,22 @@ namespace CalculatorUnitTest
             // richiamo la funzione
             float outputDivide = Calculator.Divide(num1, num2);
 
-            // confront output funzione con l'output atteso
+            // confronto output funzione con l'output atteso
             Assert.IsTrue(outputDivide == totalExpected, $"Il risultato atteso dalla divisione sarebbe {totalExpected} mentre il risultato ottenuto è {outputDivide}");
+        }
+
+        [Test]
+        public void TestDivideByZeroEqualsInfinity()
+        {
+            // dichiaro gli input
+            float num1 = 5f;
+            float num2 = 0;
+
+            float totalExpected = float.PositiveInfinity;
+
+            float outputDivide = Calculator.Divide(num1, num2);
+
+            Assert.That(outputDivide, Is.EqualTo(totalExpected), $"Il risultato atteso della divisione sarebbe {totalExpected} mentre il risultato ottenuto è {outputDivide}");
         }
 
         [Test]

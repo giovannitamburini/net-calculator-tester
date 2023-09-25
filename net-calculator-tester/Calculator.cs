@@ -21,18 +21,16 @@ namespace net_calculator_tester
 
         public static float Divide(float num1, float num2)
         {
-            try
-            {
-                return num1 / num2;
-            }
-            catch(DivideByZeroException ex)
-            {
-                throw new DivideByZeroException("Hai diviso un numero per zero, divisione errata, " + ex.Message);
-            }
+            return num1 / num2;
         }
 
         public static float Multiply(float num1, float num2)
         {
+            if (float.IsNaN(num1) || float.IsNaN(num2))
+            {
+                throw new InvalidOperationException("Invalid operation: One of the operands is NaN.");
+            }
+
             return num1 * num2;
         }
     }

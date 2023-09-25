@@ -45,20 +45,14 @@ namespace CalculatorUnitTest
         }
 
         [Test]
-        public void TestDivide()
+        [TestCase(10, 2, 5)]
+        public void TestDivide(float num1, float num2, float totalExpected)
         {
-            // dichiaro gli input
-            float num1 = 10f;
-            float num2 = 2f;
-
-            // dichiaro output atteso
-            float totalExpected = 5f;
-
             // richiamo la funzione
             float outputDivide = Calculator.Divide(num1, num2);
 
             // confronto output funzione con l'output atteso
-            Assert.IsTrue(outputDivide == totalExpected, $"Il risultato atteso dalla divisione sarebbe {totalExpected} mentre il risultato ottenuto è {outputDivide}");
+            Assert.IsTrue(num1/num2 == outputDivide, $"Il risultato atteso dalla divisione sarebbe {totalExpected} mentre il risultato ottenuto è {outputDivide}");
         }
 
         [Test]
@@ -96,6 +90,7 @@ namespace CalculatorUnitTest
             Assert.That(outputDivide, Is.EqualTo(totalExpected), $"Il risultato atteso della divisione sarebbe {totalExpected} mentre il risultato ottenuto è {outputDivide}");
         }
 
+
         [Test]
         public void TestMultiply()
         {
@@ -128,6 +123,17 @@ namespace CalculatorUnitTest
 
             // confronto l'output della funzione con l'output atteso
             Assert.That(outputMultiply == totalExpected, $"Il risultato atteso dalla moltiplicazione sarebbe {totalExpected} mentre il risultato ottenuto è {outputMultiply}");
+        }
+
+        [Test]
+        public void TestMultiplyWithNaN()
+        {
+            // dichiaro gli input, uno dei quali è NaN
+            float num1 = 5f;
+            float num2 = float.NaN;
+
+            // controllo che il test sollevi la giusta eccezione
+            Assert.Throws<InvalidOperationException>(() => Calculator.Multiply(num1, num2), "Non puoi utilizzare una variabile che non rappresenta un valore numerico");
         }
     }
 }

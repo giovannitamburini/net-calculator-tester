@@ -112,5 +112,22 @@ namespace CalculatorUnitTest
             // confronto output funzione con l'output atteso
             Assert.IsTrue(outputMultiply == totalExpected, $"Il risultato atteso dalla moltiplicazione sarebbe {totalExpected} mentre il risultato ottenuto è {outputMultiply}");
         }
+
+        [Test]
+        public void TestMultiplyWithMaxNumber()
+        {
+            // dichiaro gli input
+            float num1 = float.MaxValue;
+            float num2 = 2f;
+
+            // dichiaro l'output atteso
+            float totalExpected = float.PositiveInfinity;
+
+            // richiamo la funzione
+            float outputMultiply = Calculator.Multiply(num1, num2);
+
+            // confronto l'output della funzione con l'output atteso
+            Assert.That(outputMultiply == totalExpected, $"Il risultato atteso dalla moltiplicazione sarebbe {totalExpected} mentre il risultato ottenuto è {outputMultiply}");
+        }
     }
 }

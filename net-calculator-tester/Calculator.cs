@@ -11,15 +11,6 @@ namespace net_calculator_tester
     {
         public static float Add(float num1, float num2)
         {
-            if (num1 == null)
-            {
-                num1 = 0;
-            }
-            if (num2 == null)
-            {
-                num2 = 0;
-            }
-
             return num1 + num2;
         }
 
